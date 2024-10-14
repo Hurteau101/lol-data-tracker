@@ -13,7 +13,8 @@ class PrizePicks:
     def extract_player_id(self):
         for player_id in self.player_stats:
             for player in self.pp_data["included"]:
-                if player_id["player_id"] == player["id"]:
+                if player_id["player_id"] == player["id"] and player["type"] == "new_player":
+                    print(player)
                     player_id["display_name"] = player["attributes"]["display_name"]
                     player_id["team"] = player["attributes"]["team"]
                     player_id["position"] = player["attributes"]["position"]
